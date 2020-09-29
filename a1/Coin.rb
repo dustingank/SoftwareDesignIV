@@ -9,6 +9,7 @@ class Coin < Randomizer
         @denomination_enum = denomination_enum
         @randomize_result = -2
         @randomizeCount_int = 0
+        @randomize_item = :coin
     end
 
     def denomination() #returns the denomination of the coin
@@ -22,6 +23,10 @@ class Coin < Randomizer
     end
 
     def sideup() #returns :H or :T or nil
+        if @randomizeCount_int == 0
+            return nil
+        end
+
         if @randomize_result == 0
             return :H
         elsif @randomize_result == 1
@@ -29,5 +34,5 @@ class Coin < Randomizer
         else
             return nil
         end
-    end 
+    end
 end

@@ -3,7 +3,7 @@
 class Randomizer
     
     def randomize() #both randomizes and returns the randomizer itself
-        @randomizeCount_int++
+        @randomizeCount_int = @randomizeCount_int + 1
         self
     end
 
@@ -24,5 +24,8 @@ class Randomizer
         @randomize_result = nil
     end
 
+    def get_type()
+        @randomize_item
+    end
 
 end

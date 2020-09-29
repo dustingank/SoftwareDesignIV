@@ -4,10 +4,10 @@ require "./Randomizer.rb"
 require "./Coin.rb"
 require "./Die.rb"
 
-randomizerItem_enum =[:coin => "coin", :die => "die"]
-colour_enum = [:red => "red", :green => "green", :blue => "blue", :yellow => "yellow", :black => "black", :white => "white"] 
-coinSide_enum =[:H => "head", :T => "tail"]
-denomination = [0.05, 0.10, 0.25, 1, 2]
+RandomizerItems = [:coin, :die]
+Denomination = [0.05, 0.01, 0.25, 1, 2]
+Colour = [:red, :green, :blue, :yellow, :black, :white]
+CoinSide = [:H, :T]
 
 class RandomizerFactory
     
