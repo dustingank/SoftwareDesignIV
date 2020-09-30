@@ -22,6 +22,23 @@ class RandomizerContainer
         @container_array.clear
     end
 
+    # the following methods are for testing purpose
+    def show()
+        for index in 0 ... @container_array.size
+            if @container_array[index].get_type == :coin
+                puts "Item: coin Denomination: #{@container_array[index].denomination()}"
+            end
+
+            if @container_array[index].get_type == :die
+                puts "Item: die colour: #{@container_array[index].colour()} sides: #{@container_array[index].sides()}"
+            end
+        end
+    end
+
+    def size()
+        @container_array.size
+    end
+
     def get_container()
         @container_array
     end

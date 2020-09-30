@@ -20,8 +20,4 @@ class Clutch < RandomizerContainer
         return nil
     end
 
-    def size()
-        @container_array.size
-    end
-
 end

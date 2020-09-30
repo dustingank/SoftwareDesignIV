@@ -1,6 +1,7 @@
 # this is Cup class
 
 require "./RandomizerContainer.rb"
+require "./Throw.rb"
 
 class Cup < RandomizerContainer
 
@@ -9,7 +10,9 @@ class Cup < RandomizerContainer
     end
 
     def throw()
-        for index in @container_array
+        @throwReturned_object = Throw.new
+        for index in 0 ... @container_array.size
+            
             if @container_array[index].get_type() == :coin
                 @container_array[index].flip()
             end
@@ -18,16 +21,14 @@ class Cup < RandomizerContainer
                 @container_array[index].roll()
             end
 
-            #TODO: create a Throw object
+            @throwReturned_object.add_randomizer(@container_array[index])
         end
-        #TODO: return new Throw object
+        @throwReturned_object
     end
 
     def load(clutch_object)
-        @temp_array = clutch_object.get_container()
-
-        for index in 0 ... @temp_array.size
-            sotre(@temp_array[index])
+        while clutch_object.next() != nil do
+            push(clutch_object.next)
         end
     end
 
