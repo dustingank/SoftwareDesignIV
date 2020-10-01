@@ -13,6 +13,7 @@ class Bag < RandomizerContainer
 
     def select(description_hash, amount) #select items from Bag based on the description / return Clutch Object
         @clutch_object = Clutch.new
+       
         count = 0
 
         
@@ -32,7 +33,6 @@ class Bag < RandomizerContainer
                         count = count + 1
                         @container_array[index].reset() #reset everything into 0
                         @clutch_object.store(@container_array[index])
-    
                         if count == amount
                             return @clutch_object
                         end
@@ -42,7 +42,6 @@ class Bag < RandomizerContainer
                         count = count + 1
                         @container_array[index].reset() #reset everything into 0
                         @clutch_object.store(@container_array[index])
-    
                         if count == amount
                             return @clutch_object
                         end
@@ -60,7 +59,6 @@ class Bag < RandomizerContainer
                             count = count + 1
                             @container_array[index].reset() #reset everything into 0
                             @clutch_object.store(@container_array[index])
-    
                             if count == amount
                                 return @clutch_object
                             end
@@ -70,7 +68,6 @@ class Bag < RandomizerContainer
                             count = count + 1
                             @container_array[index].reset() #reset everything into 0
                             @clutch_object.store(@container_array[index])
-    
                             if count == amount
                                 return @clutch_object
                             end
@@ -81,7 +78,6 @@ class Bag < RandomizerContainer
                         count = count + 1
                         @container_array[index].reset() #reset everything into 0
                         @clutch_object.store(@container_array[index])
-    
                         if count == amount
                             return @clutch_object
                         end
@@ -91,7 +87,6 @@ class Bag < RandomizerContainer
                         count = count + 1
                         @container_array[index].reset() #reset everything into 0
                         @clutch_object.store(@container_array[index])
-    
                         if count == amount
                             return @clutch_object
                         end
@@ -110,6 +105,15 @@ class Bag < RandomizerContainer
             @container_array[index].reset()
             @clutch_object.store(@container_array[index])
         end
+    end
+
+    def add(randomizer_container_object)
+        @temp_array = randomizer_container_object.get_container()
+    end
+
+    def store(randomizer_object) #store a randomizer in the container
+        randomizer_object.reset()
+        @container_array.push(randomizer_object)
     end
     
 end

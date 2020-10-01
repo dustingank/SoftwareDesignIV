@@ -27,8 +27,8 @@ class Cup < RandomizerContainer
     end
 
     def load(clutch_object)
-        while clutch_object.next() != nil do
-            push(clutch_object.next)
+        for index in 0 ... clutch_object.size()
+            @container_array.push(clutch_object.next())
         end
     end
 

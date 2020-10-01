@@ -23,7 +23,7 @@ class Throw
         @tallyTotal_int = 0;
         if description_hash[:item] == :coin
             for index in 0 ... @recoard_array.size
-                if @clutchReturn_object[index].get_type() == :coin
+                if @recoard_array[index].get_type() == :coin
                     if description_hash.key?(:denomination) && @recoard_array[index].denomination() == description_hash[:denomination]
                         if description_hash.key?(:up) && @recoard_array[index].sideup() == description_hash[:up]
                             @tallyTotal_int = @tallyTotal_int + 1
@@ -49,7 +49,7 @@ class Throw
 
         if description_hash[:item] = :die
             for index in 0 ... @recoard_array.size
-                if @clutchReturn_object[index].get_type() == :die
+                if @recoard_array[index].get_type() == :die
                     if description_hash.key?(:sides) && @recoard_array[index].sides() == description_hash[:sides]
                         if description_hash.key?(:colour) && @recoard_array[index].colour() == description_hash[:colour]
                             if description_hash.key?(:up) && @recoard_array[index].sideup() == description_hash[:up]

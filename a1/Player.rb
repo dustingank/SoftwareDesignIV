@@ -20,25 +20,24 @@ class Player
     end
 
     def name() # return the name of the player
-        player_name
-    end
+        @player_name
+    end     
 
     def store(item_randomizer) # stores the item in the player's bag
-        bag.store(item_randomizer)
+        @bag.store(item_randomizer)
     end
 
     def add(rc_randomizer_container) # get each item in rc and stores it in the player's bag
-        bag.add(rc_randomizer_container)
+        @bag.add(rc_randomizer_container)
     end
 
     def load(description_hash) # loads items from the player's bag to the player's cup based on teh description
-        @cup = @bag.select(description_hash)
+        @cup.load(@bag.select(description_hash, 20))
     end
 
     def throw() # throws the cup, replace the items in the cup to the bag
-        @cup.load()
         temp_object = @cup.throw()
-        @throwContainer_array.push(temp)
+        @throwContainer_array.push(temp_object)
         add(@cup.empty())
     end
 
@@ -56,10 +55,10 @@ class Player
         @tally_array
     end
 
-    def sum(descriptionHash) # call sum on each stored throw and returns the combined values as an array
+    def sum(description_hash) # call sum on each stored throw and returns the combined values as an array
         @sum_array = Array.new
         for index in 0 ... @throwContainer_array.size
-            tempSum_int = @throwContainer_array[index].tally(description_hash)
+            tempSum_int = @throwContainer_array[index].sum(description_hash)
             @sum_array.push(tempSum_int)
         end
         #deep copty to report_array
@@ -68,6 +67,21 @@ class Player
 
     def report() # return the values as an array from the last tally or sum method call
         @repotr_array
+    end
+
+    # for testing purpose
+
+    def show_bag()
+        @bag.show()
+    end
+    def bag_size()
+        @bag.size()
+    end
+    def show_cup()
+        @cup.show()
+    end
+    def cup_size()
+        @cup.size()
     end
 
 end

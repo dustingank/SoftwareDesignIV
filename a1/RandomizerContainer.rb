@@ -14,7 +14,7 @@ class RandomizerContainer
         @temp_array = randomizer_container_object.get_container()
 
         for index in 0 ... @temp_array.size
-            sotre(@temp_array[index])
+            store(@temp_array[index])
         end
     end
 
@@ -26,11 +26,11 @@ class RandomizerContainer
     def show()
         for index in 0 ... @container_array.size
             if @container_array[index].get_type == :coin
-                puts "Item: coin Denomination: #{@container_array[index].denomination()}"
+                puts "Item: coin Denomination: #{@container_array[index].denomination()} up: #{@container_array[index].sideup()}"
             end
 
             if @container_array[index].get_type == :die
-                puts "Item: die colour: #{@container_array[index].colour()} sides: #{@container_array[index].sides()}"
+                puts "Item: die colour: #{@container_array[index].colour()} sides: #{@container_array[index].sides()} up: #{@container_array[index].sideup()}"
             end
         end
     end
